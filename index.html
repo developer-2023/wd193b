@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+    <script>
+        function Newspaper(title) {
+            this.title = title;
+            this.content = "Content of the newspaper";
+            this.adverts = [];
+            this.addAdvert = function(obj) {
+                this.adverts.push(obj);
+            };
+            this.printAdverts = function() {
+                for (let i = 0; i < this.adverts.length; i++) {
+                    console.log(this.adverts[i].content);
+                };
+            };
+        }
+
+        const newspaper001 = new Newspaper("Globe");
+        
+        let adv001 = {
+            content: "Buy new Apple Pro for 1000$!",
+        }
+        let adv002 = {
+            content: "3 iPhones for the price of 2!",
+        }
+        newspaper001.addAdvert(adv001);
+        newspaper001.addAdvert(adv002);
+        
+        newspaper001.printAdverts();
+    </script>
+</body>
+</html>
