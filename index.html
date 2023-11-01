@@ -8,30 +8,29 @@
 <body>
     
     <script>
-        function Newspaper(title) {
+        function Magazine(title) {
             this.title = title;
             this.content = "Content of the newspaper";
             this.adverts = [];
-            this.addAdvert = function(obj) {
-                this.adverts.push(obj);
+            this.addAdvert = function(name, page) {
+                this.adverts.push({
+                    name: name,
+                    page: page
+                });
             };
             this.printAdverts = function() {
+                console.log(this.title, "magazine");
                 for (let i = 0; i < this.adverts.length; i++) {
-                    console.log(this.adverts[i].content);
+                    let a = this.adverts[i];
+                    console.log("Advert:", a.name, a.page);
                 };
             };
         }
 
-        const newspaper001 = new Newspaper("Globe");
+        const newspaper001 = new Magazine("Globe");
         
-        let adv001 = {
-            content: "Buy new Apple Pro for 1000$!",
-        }
-        let adv002 = {
-            content: "3 iPhones for the price of 2!",
-        }
-        newspaper001.addAdvert(adv001);
-        newspaper001.addAdvert(adv002);
+        newspaper001.addAdvert("Coca-Cola", 2);
+        newspaper001.addAdvert("Apple", 3);
         
         newspaper001.printAdverts();
     </script>
